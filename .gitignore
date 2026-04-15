@@ -1,0 +1,23 @@
+# Ignore Large Directories and Models
+train_data/
+loras/
+rawData/
+raw_crops/
+《赛博朋克2077》Vol.1-Vol.5/
+*.safetensors
+*.bin
+*.pth
+*.pt
+loras.zip
+
+# Python & Jupyter Cache
+.ipynb_checkpoints
+__pycache__/
+*.pyc
+
+*.pdf
+notebook (1).ipynb
+Untitled.ipynb
+大概有趣食谱产品说明书.docx
+新建 Python 源文件.md
+

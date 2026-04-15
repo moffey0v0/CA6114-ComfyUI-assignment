@@ -1,0 +1,272 @@
+{
+  "id": "0618d96d-f650-407f-be9d-680fb8d935e5",
+  "revision": 0,
+  "last_node_id": 33,
+  "last_link_id": 40,
+  "nodes": [
+    {
+      "id": 16,
+      "type": "INPAINT_LoadInpaintModel",
+      "pos": [
+        734.7947986280943,
+        1170.9188322433288
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "inpaint model",
+          "type": "INPAINT_MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inpaint-nodes",
+        "ver": "dc7ca7515833a41dc83d254d10fbb01599d77071",
+        "Node name for S&R": "INPAINT_LoadInpaintModel"
+      },
+      "widgets_values": [
+        "big-lama.pt"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "Image Rembg (Remove Background)",
+      "pos": [
+        1703.274670631095,
+        1049.7101704808254
+      ],
+      "size": [
+        375.505859375,
+        250
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Image Rembg (Remove Background)"
+      },
+      "widgets_values": [
+        true,
+        "u2net",
+        false,
+        false,
+        false,
+        240,
+        10,
+        10,
+        "none"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "INPAINT_InpaintWithModel",
+      "pos": [
+        1166.3230436534927,
+        1071.2910082103822
+      ],
+      "size": [
+        335.255859375,
+        142
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "inpaint_model",
+          "type": "INPAINT_MODEL",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 6
+        },
+        {
+          "label": "upscale model (optional)",
+          "name": "optional_upscale_model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inpainted image",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inpaint-nodes",
+        "ver": "dc7ca7515833a41dc83d254d10fbb01599d77071",
+        "Node name for S&R": "INPAINT_InpaintWithModel"
+      },
+      "widgets_values": [
+        81268178280908,
+        "randomize"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        752.2477286255955,
+        687.3111197158953
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.19.0",
+        "Node name for S&R": "LoadImage",
+        "image": "clipspace/clipspace-painted-masked-1776092316604.png [input]"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-painted-masked-1776092316604.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        2134.021737222732,
+        1044.9948495561227
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.19.0"
+      },
+      "widgets_values": [
+        "cleaned3"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      16,
+      0,
+      15,
+      0,
+      "INPAINT_MODEL"
+    ],
+    [
+      5,
+      5,
+      0,
+      15,
+      1,
+      "IMAGE"
+    ],
+    [
+      6,
+      5,
+      1,
+      15,
+      2,
+      "MASK"
+    ],
+    [
+      18,
+      3,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      15,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7627768444385762,
+      "offset": [
+        -907.8188473483773,
+        -408.025658956966
+      ]
+    },
+    "frontendVersion": "1.42.10"
+  },
+  "version": 0.4
+}
